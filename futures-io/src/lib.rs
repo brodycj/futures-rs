@@ -19,8 +19,8 @@
 #![warn(missing_docs, /* unsafe_op_in_unsafe_fn */)] // unsafe_op_in_unsafe_fn requires Rust 1.52
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
-#[cfg(feature = "std")]
-extern crate std;
+// #[cfg(feature = "std")]
+// extern crate std;
 
 // #[cfg(feature = "std")]
 mod if_std {
