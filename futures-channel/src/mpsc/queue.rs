@@ -43,6 +43,9 @@
 
 pub(super) use self::PopResult::*;
 
+// XXX XXX
+extern crate std;
+
 use std::boxed::Box;
 use std::cell::UnsafeCell;
 use std::ptr;
