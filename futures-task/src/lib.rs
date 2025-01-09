@@ -12,8 +12,8 @@
 
 #[cfg(feature = "alloc")]
 extern crate alloc;
-#[cfg(feature = "std")]
-extern crate std;
+// #[cfg(feature = "std")]
+// extern crate std;
 
 mod spawn;
 pub use crate::spawn::{LocalSpawn, Spawn, SpawnError};

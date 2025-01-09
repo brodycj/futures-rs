@@ -68,8 +68,8 @@ impl fmt::Display for SpawnError {
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for SpawnError {}
+// #[cfg(feature = "std")]
+impl core::error::Error for SpawnError {}
 
 impl SpawnError {
     /// Spawning failed because the executor has been shut down.
