@@ -20,6 +20,7 @@ std = []
 unstable = []
 
 [dependencies]
+portable-io = "0.0.3"
 
 [package.metadata.docs.rs]
 all-features = true

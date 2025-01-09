@@ -22,14 +22,15 @@
 #[cfg(feature = "std")]
 extern crate std;
 
-#[cfg(feature = "std")]
+// #[cfg(feature = "std")]
 mod if_std {
-    use std::boxed::Box;
-    use std::io;
-    use std::ops::DerefMut;
-    use std::pin::Pin;
-    use std::task::{Context, Poll};
-    use std::vec::Vec;
+    extern crate alloc;
+    use alloc::boxed::Box;
+    use portable_io as io;
+    use core::ops::DerefMut;
+    use core::pin::Pin;
+    use core::task::{Context, Poll};
+    use alloc::vec::Vec;
 
     // Re-export some types from `std::io` so that users don't have to deal
     // with conflicts when `use`ing `futures::io` and `std::io`.
@@ -556,5 +557,5 @@ mod if_std {
     }
 }
 
-#[cfg(feature = "std")]
+// #[cfg(feature = "std")]
 pub use self::if_std::*;
