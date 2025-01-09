@@ -5,7 +5,7 @@ use futures_core::task::{Context, Poll};
 use futures_io::{AsyncBufRead, AsyncRead, AsyncWrite};
 use pin_project_lite::pin_project;
 use std::cmp;
-use std::io::{Error, Result};
+use portable_io::{Error, Result};
 
 pin_project! {
     /// Reader for the [`into_async_read`](super::TryStreamExt::into_async_read) method.

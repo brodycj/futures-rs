@@ -112,26 +112,26 @@ macro_rules! delegate_async_write {
             self: core::pin::Pin<&mut Self>,
             cx: &mut core::task::Context<'_>,
             buf: &[u8],
-        ) -> core::task::Poll<std::io::Result<usize>> {
+        ) -> core::task::Poll<portable_io::Result<usize>> {
             self.project().$field.poll_write(cx, buf)
         }
         fn poll_write_vectored(
             self: core::pin::Pin<&mut Self>,
             cx: &mut core::task::Context<'_>,
-            bufs: &[std::io::IoSlice<'_>],
-        ) -> core::task::Poll<std::io::Result<usize>> {
+            bufs: &[portable_io::IoSlice<'_>],
+        ) -> core::task::Poll<portable_io::Result<usize>> {
             self.project().$field.poll_write_vectored(cx, bufs)
         }
         fn poll_flush(
             self: core::pin::Pin<&mut Self>,
             cx: &mut core::task::Context<'_>,
-        ) -> core::task::Poll<std::io::Result<()>> {
+        ) -> core::task::Poll<portable_io::Result<()>> {
             self.project().$field.poll_flush(cx)
         }
         fn poll_close(
             self: core::pin::Pin<&mut Self>,
             cx: &mut core::task::Context<'_>,
-        ) -> core::task::Poll<std::io::Result<()>> {
+        ) -> core::task::Poll<portable_io::Result<()>> {
             self.project().$field.poll_close(cx)
         }
     };
@@ -145,15 +145,15 @@ macro_rules! delegate_async_read {
             self: core::pin::Pin<&mut Self>,
             cx: &mut core::task::Context<'_>,
             buf: &mut [u8],
-        ) -> core::task::Poll<std::io::Result<usize>> {
+        ) -> core::task::Poll<portable_io::Result<usize>> {
             self.project().$field.poll_read(cx, buf)
         }
 
         fn poll_read_vectored(
             self: core::pin::Pin<&mut Self>,
             cx: &mut core::task::Context<'_>,
-            bufs: &mut [std::io::IoSliceMut<'_>],
-        ) -> core::task::Poll<std::io::Result<usize>> {
+            bufs: &mut [portable_io::IoSliceMut<'_>],
+        ) -> core::task::Poll<portable_io::Result<usize>> {
             self.project().$field.poll_read_vectored(cx, bufs)
         }
     };
@@ -166,7 +166,7 @@ macro_rules! delegate_async_buf_read {
         fn poll_fill_buf(
             self: core::pin::Pin<&mut Self>,
             cx: &mut core::task::Context<'_>,
-        ) -> core::task::Poll<std::io::Result<&[u8]>> {
+        ) -> core::task::Poll<portable_io::Result<&[u8]>> {
             self.project().$field.poll_fill_buf(cx)
         }
 
@@ -314,7 +314,7 @@ pub mod compat;
 #[cfg(feature = "std")]
 pub mod io;
 #[cfg(feature = "io")]
-#[cfg(feature = "std")]
+// #[cfg(feature = "std")]
 #[doc(no_inline)]
 pub use crate::io::{
     AsyncBufRead, AsyncBufReadExt, AsyncRead, AsyncReadExt, AsyncSeek, AsyncSeekExt, AsyncWrite,

@@ -1,7 +1,7 @@
 use futures_core::task::{Context, Poll};
 use futures_io::{AsyncBufRead, AsyncRead, AsyncSeek, AsyncWrite, IoSlice, IoSliceMut, SeekFrom};
 use std::boxed::Box;
-use std::io;
+use portable_io as io;
 use std::pin::Pin;
 use std::vec::Vec;
 

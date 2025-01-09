@@ -26,7 +26,7 @@ use std::{pin::Pin, ptr, string::String, vec::Vec};
 // Re-export some types from `std::io` so that users don't have to deal
 // with conflicts when `use`ing `futures::io` and `std::io`.
 #[doc(no_inline)]
-pub use std::io::{Error, ErrorKind, IoSlice, IoSliceMut, Result, SeekFrom};
+pub use portable_io::{Error, ErrorKind, IoSlice, IoSliceMut, Result, SeekFrom};
 
 pub use futures_io::{AsyncBufRead, AsyncRead, AsyncSeek, AsyncWrite};
 

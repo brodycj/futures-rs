@@ -3,7 +3,8 @@ use futures_io::{AsyncBufRead, AsyncRead, AsyncSeek, AsyncWrite, IoSlice, IoSlic
 use std::pin::Pin;
 use std::string::String;
 use std::vec::Vec;
-use std::{fmt, io};
+use std::fmt;
+use portable_io as io;
 
 /// A simple wrapper type which allows types which implement only
 /// implement `std::io::Read` or `std::io::Write`
@@ -27,7 +28,7 @@ macro_rules! try_with_interrupt {
                 Ok(e) => {
                     break e;
                 }
-                Err(ref e) if e.kind() == ::std::io::ErrorKind::Interrupted => {
+                Err(ref e) if e.kind() == io::ErrorKind::Interrupted => {
                     continue;
                 }
                 Err(e) => {

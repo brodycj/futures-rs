@@ -3,7 +3,7 @@ use futures_core::task::{Context, Poll};
 use futures_io::{AsyncBufRead, AsyncRead, IoSliceMut};
 use pin_project_lite::pin_project;
 use std::fmt;
-use std::io;
+use portable_io as io;
 use std::pin::Pin;
 
 pin_project! {

@@ -3,7 +3,7 @@ use futures_core::ready;
 use futures_core::task::{Context, Poll};
 use futures_io::{AsyncBufRead, AsyncWrite};
 use pin_project_lite::pin_project;
-use std::io;
+use portable_io as io;
 use std::pin::Pin;
 
 /// Creates a future which copies all the bytes from one object to another.

@@ -1054,7 +1054,7 @@ pub trait TryStreamExt: TryStream {
     #[cfg(feature = "std")]
     fn into_async_read(self) -> IntoAsyncRead<Self>
     where
-        Self: Sized + TryStreamExt<Error = std::io::Error>,
+        Self: Sized + TryStreamExt<Error = portable_io::Error>,
         Self::Ok: AsRef<[u8]>,
     {
         crate::io::assert_read(IntoAsyncRead::new(self))

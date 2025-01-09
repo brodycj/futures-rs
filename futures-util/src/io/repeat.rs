@@ -2,7 +2,7 @@ use futures_core::ready;
 use futures_core::task::{Context, Poll};
 use futures_io::{AsyncRead, IoSliceMut};
 use std::fmt;
-use std::io;
+use portable_io as io;
 use std::pin::Pin;
 
 /// Reader for the [`repeat()`] function.

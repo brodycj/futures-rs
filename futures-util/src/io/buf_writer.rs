@@ -4,7 +4,7 @@ use futures_core::task::{Context, Poll};
 use futures_io::{AsyncBufRead, AsyncRead, AsyncSeek, AsyncWrite, IoSlice, SeekFrom};
 use pin_project_lite::pin_project;
 use std::fmt;
-use std::io::{self, Write};
+use portable_io::{self as io, Write};
 use std::pin::Pin;
 use std::ptr;
 use std::vec::Vec;

@@ -3,7 +3,7 @@ use core::fmt;
 use futures_core::ready;
 use futures_core::task::{Context, Poll};
 use futures_io::{AsyncRead, AsyncWrite, IoSlice, IoSliceMut};
-use std::io;
+use portable_io as io;
 use std::pin::Pin;
 
 /// The readable half of an object returned from `AsyncRead::split`.

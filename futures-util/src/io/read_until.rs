@@ -2,7 +2,7 @@ use futures_core::future::Future;
 use futures_core::ready;
 use futures_core::task::{Context, Poll};
 use futures_io::AsyncBufRead;
-use std::io;
+use portable_io as io;
 use std::pin::Pin;
 use std::vec::Vec;
 

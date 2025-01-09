@@ -3,7 +3,7 @@ use futures_core::ready;
 use futures_core::task::{Context, Poll};
 use futures_io::AsyncWrite;
 use futures_io::IoSlice;
-use std::io;
+use portable_io as io;
 use std::pin::Pin;
 
 /// Future for the
@@ -46,7 +46,7 @@ impl<W: AsyncWrite + ?Sized + Unpin> Future for WriteAllVectored<'_, '_, W> {
 mod tests {
     use std::cmp::min;
     use std::future::Future;
-    use std::io;
+    use portable_io as io;
     use std::pin::Pin;
     use std::task::{Context, Poll};
     use std::vec;
