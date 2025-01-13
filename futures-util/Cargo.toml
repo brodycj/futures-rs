@@ -45,7 +45,7 @@ futures_01 = { version = "0.1.25", optional = true, package = "futures" }
 tokio-io = { version = "0.1.9", optional = true }
 pin-utils = "0.1.0"
 pin-project-lite = "0.2.6"
-portable-io = "0.0.3"
+portable-io = "0.0.4"
 
 [dev-dependencies]
 futures = { path = "../futures", features = ["async-await", "thread-pool"] }
